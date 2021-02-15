@@ -23,4 +23,5 @@ mongoose.connect(process.env.DB_CONNECTION,
 })
 
 // listeners
-app.listen(3000)
+const port =process.env.PORT || 3000;
+app.listen( port)
