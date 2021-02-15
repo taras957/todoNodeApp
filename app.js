@@ -10,11 +10,8 @@ app.use(bodyParser.json())
 
 // Import Routes
 const todosRoute = require('./routes/todos')
-app.use('/todos',todosRoute )
-// ROUTES
-app.get('/',(req,resp) => {
-    resp.send("We are at home")
-})
+app.use('/',todosRoute )
+''
 
 // Connect DB
 mongoose.connect(process.env.DB_CONNECTION,
@@ -24,4 +21,4 @@ mongoose.connect(process.env.DB_CONNECTION,
 
 // listeners
 const port =process.env.PORT || 3000;
-app.listen( port)
+app.listen(port)
