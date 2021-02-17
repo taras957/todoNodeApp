@@ -28,8 +28,8 @@ router.post('/', (req,res) => {
 router.delete('/:todoId' , async(req,res) => {
 
     try{
-        const deletedTodo = await Todo.remove({_id:req.params.todoId});
-        res.json(deletedTodo)
+        await Todo.remove({_id:req.params.todoId});
+        res.json({_id:req.params.todoId})
     } catch(e) {
         res.json({message:e})
     }
@@ -38,8 +38,8 @@ router.delete('/:todoId' , async(req,res) => {
 router.patch('/:todoId' , async(req,res) => {
 
     try{
-        const updatedTodo = await Todo.updateOne({_id:req.params.todoId},{$set:req.body});
-        res.json(updatedTodo)
+       await Todo.updateOne({_id:req.params.todoId},{$set:req.body});
+        res.json({_id:req.params.todoId,...req.body})
     } catch(e) {
         res.json({message:e})
     }
