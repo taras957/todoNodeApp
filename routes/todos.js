@@ -21,7 +21,7 @@ router.post('/', (req,res) => {
       res.json(data)
   })
   .catch(error => {
-      res.json({message:error})
+      res.status(400).send({message:error})
   })
 })
 
